@@ -16,7 +16,8 @@ root.render(
   //     <h1>React, aplikacija</h1>
   //     <p>Ovo je prva React aplikacija.</p>
   // </>
-  <TestComponent/>
+  // <TestComponent/>
+  <App/>
 
 );
 
