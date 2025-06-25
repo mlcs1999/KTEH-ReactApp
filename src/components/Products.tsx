@@ -1,8 +1,14 @@
 import React from 'react'
+import OneProduct from './OneProduct'
 
 const Products = () => {
   return (
-    <div>Products</div>
+    <div className='all-products'>
+        <OneProduct />
+        <OneProduct />
+        <OneProduct />
+        <OneProduct />
+    </div>
   )
 }
 
