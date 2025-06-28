@@ -2,11 +2,16 @@
 // rafce - react functional component with export and arrow function
 import React from 'react'
 
-function NavBar() {
+interface NavBarProps {
+  cartNum: number;
+}
+
+// : React.FC<NavBarProps>
+function NavBar({cartNum}: NavBarProps) {
   return (
     <div className="navBar">
         <a href="">My Store</a>
-        <p className="cart-num">0</p>
+        <p className="cart-num">{cartNum}</p>
     </div>
   )
 }

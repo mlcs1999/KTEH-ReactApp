@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Products from './components/Products';
@@ -10,22 +11,24 @@ const products: Product[] = [
   new Product(4, 'Proizvod 4', 'Opis proizvoda 4', 0),
 ];
 
-const addToCart = (id: number) => {
-  console.log(`Dodat proizvod ${id} u korpu!`);
-  products.map((product) => {
-    if(product.id == id) {
-      product.amount++;
-      console.log(`Trenutna kolicina proizvoda ${product.id} je ${product.amount}`);
-    }
-  });
-  // productProps.amount++;
+function App() {
+  const [cartNum, setCartNum] = useState(0);
+
+  const addToCart = (id: number) => {
+    console.log(`Dodat proizvod ${id} u korpu!`);
+    products.map((product) => {
+      if(product.id == id) {
+        product.amount++;
+        setCartNum(cartNum + 1);
+        console.log(`Trenutna kolicina proizvoda ${product.id} je ${product.amount}`);
+      }
+    });
+    // productProps.amount++;
   // console.log(`Trenutna kolicina proizvoda ${productProps.id} je ${productProps.amount}`);
 }
-
-function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBar cartNum={cartNum}/>
       <Products productsProps={products} onAdd={addToCart}/>
     </div>
   );
