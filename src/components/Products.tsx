@@ -10,9 +10,16 @@ const Products : React.FC<ProductsProps> = ({productsProps}) => {
   return (
     <div className='all-products'>
       {/* CTRL + ALT + strelica na dole/gore */}
-        <OneProduct productProps={productsProps[0]}/>
+        {/* <OneProduct productProps={productsProps[0]}/>
         <OneProduct productProps={productsProps[1]}/>
-        <OneProduct productProps={productsProps[2]}/>
+        <OneProduct productProps={productsProps[2]}/> */}
+        {/* map */}
+        {/* map: [0] = productMap <OneProduct/>
+            map: [1] = productMap <OneProduct/>
+            ..... */}
+        {productsProps.map((productMap) => (
+          <OneProduct key={productMap.id} productProps={productMap}/>
+        ))}
     </div>
   )
 }
