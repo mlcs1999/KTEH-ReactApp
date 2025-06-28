@@ -10,11 +10,23 @@ const products: Product[] = [
   new Product(4, 'Proizvod 4', 'Opis proizvoda 4', 0),
 ];
 
+const addToCart = (id: number) => {
+  console.log(`Dodat proizvod ${id} u korpu!`);
+  products.map((product) => {
+    if(product.id == id) {
+      product.amount++;
+      console.log(`Trenutna kolicina proizvoda ${product.id} je ${product.amount}`);
+    }
+  });
+  // productProps.amount++;
+  // console.log(`Trenutna kolicina proizvoda ${productProps.id} je ${productProps.amount}`);
+}
+
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Products productsProps={products}/>
+      <Products productsProps={products} onAdd={addToCart}/>
     </div>
   );
 }

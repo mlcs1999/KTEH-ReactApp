@@ -3,15 +3,21 @@ import { Product } from '../models/product'
 
 interface OneProductProps {
   productProps: Product;
-  // amount: number;
+  onAdd: (id: number) => void;
 }
 
 
-const OneProduct : React.FC<OneProductProps> = ({productProps}) => {
+const OneProduct : React.FC<OneProductProps> = ({productProps, onAdd}) => {
     const stil = {
         margin: 10,
         borderStyle: 'dashed',
     }
+  // function addToCart() {
+  //     console.log(`Dodat proizvod ${productProps.name} u korpu!`);
+  //     productProps.amount++;
+  //     console.log(`Trenutna kolicina proizvoda ${productProps.id} je ${productProps.amount}`);
+  // }
+
   return (
     // border-style; margin-top
     <div className="card" style={stil}>
@@ -20,8 +26,8 @@ const OneProduct : React.FC<OneProductProps> = ({productProps}) => {
             {/* <h3 className="card-title">{props.productProps.name}</h3> */}
             <h3 className="card-title">{productProps.name}</h3>
             <p className="card-text">{productProps.description}</p>
-            <a href="" className='btn'>+</a>
-            <a href="" className='btn'>-</a>
+            <a className='btn' onClick={() => onAdd(productProps.id)}>+</a>
+            <a className='btn'>-</a>
         </div>
     </div>
   )

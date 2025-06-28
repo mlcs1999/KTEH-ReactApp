@@ -6,6 +6,7 @@ function NavBar() {
   return (
     <div className="navBar">
         <a href="">My Store</a>
+        <p className="cart-num">0</p>
     </div>
   )
 }
